@@ -1,11 +1,3 @@
-FROM alpine:3.6
+FROM withlazers/gcloud:sha-d22ea6c
 
- RUN apk add --update \
- python \
- curl \
- which \
- bash
-
- RUN curl -sSL https://sdk.cloud.google.com | bash
-
- ENV PATH $PATH:/root/google-cloud-sdk/bin
+RUN gcloud components install kubectl -y
